@@ -1,0 +1,46 @@
+<ion-header>
+    <ion-toolbar>
+    <ion-item-divider>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+  <ion-segment  value="heart" [(ngModel)]="show">
+        <ion-segment-button value="profile">
+          <ion-icon name="person-outline"></ion-icon>
+          <ion-label>Profile</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="settings">
+          <ion-icon name="settings-outline"></ion-icon>
+          <ion-label>Settings</ion-label>
+        </ion-segment-button>
+    </ion-segment>
+    
+    </ion-item-divider>
+</ion-toolbar>
+    
+</ion-header>
+<ion-content [fullscreen]="true">
+  
+ <div *ngIf="show=='profile'">
+<ion-card>
+    <ion-card-content>
+        <ion-card-title>Information</ion-card-title>
+        <ion-card-subtitle>Name / {{this.global.user.name}} <ion-label></ion-label></ion-card-subtitle>
+        <ion-card-subtitle>Email / {{this.global.user.email}} <ion-label></ion-label></ion-card-subtitle>
+        <ion-card-subtitle>Permission / {{this.global.user.permission}} <ion-label></ion-label></ion-card-subtitle>
+    </ion-card-content>
+</ion-card>
+ </div>
+ <div *ngIf="show=='settings'">
+<ion-card>
+    <ion-card-content>
+        <ion-card-title>Settings</ion-card-title>
+        <ion-buttons>
+            <ion-button (click)="updateName()">UserName Change</ion-button>
+            <ion-button (click)="updatePass()">Password Change</ion-button>
+        </ion-buttons>
+    </ion-card-content>
+</ion-card>
+ </div>
+
+</ion-content>

@@ -1,0 +1,22 @@
+<ion-app>
+  <ion-split-pane when="(min-width: 801px)" contentId="main-content">
+      <ion-menu disabled="{{this.global.showmenu}}" swipe-gesture="false" contentId="main-content" type="overlay">
+          <ion-content>
+    
+                <ion-header>
+                    <ion-toolbar>
+                      <ion-title> {{this.global.menuName}} </ion-title>
+                    </ion-toolbar>
+                  </ion-header>
+                  <ion-menu-toggle auto-hide="false" *ngFor="let p of this.global.tabs">
+                      <ion-item tappable routerDirection="root" routerLink="{{p['url']}}" lines="none" detail="false" (click)="p.handler()" routerLinkActive="selected">
+                          <ion-icon  style="color: whitesmoke;" slot="start" name="{{p['icon']}}"></ion-icon>
+                          <ion-label style="color: whitesmoke;" >{{ p.title }}</ion-label>
+                        </ion-item>
+                      </ion-menu-toggle>
+   
+              </ion-content>
+      </ion-menu>
+      <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

@@ -1,0 +1,45 @@
+{
+    "ALERT": {
+        "header": "WARNING",
+        "loading": {
+            "subHeader": "",
+            "message": ""
+        },
+        "item": {
+            "delete": {
+                "subHeader": "",
+                "message": ""
+            },
+            "add": {
+                "subHeader": "",
+                "message": ""
+            },
+            "search": {
+                "subHeader": "",
+                "message": ""
+            },
+            "call": {
+                "subHeader": "",
+                "message": ""
+            }
+        },
+        "user": {
+            "delete": {
+                "subHeader": "",
+                "message": ""
+            },
+            "add": {
+                "subHeader": "",
+                "message": ""
+            },
+            "search": {
+                "subHeader": "",
+                "message": ""
+            },
+            "call": {
+                "subHeader": "",
+                "message": ""
+            }
+        }
+    }
+}

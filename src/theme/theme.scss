@@ -1,0 +1,59 @@
+ion-card-title {
+    color: rgb(237, 237, 237);
+    text-align: center;
+}
+
+ion-card {
+    background: var(--ion-color-header-color);
+
+    ion-card-content {
+        ion-card-subtitle {
+            color: rgb(237, 237, 237) !important;
+        }
+    }
+}
+
+ion-toolbar {
+    --background: var(--ion-color-header-color);
+}
+
+ion-content {
+    --background: var(--ion-color-siyah-1);
+}
+
+ion-item {
+    --background: var(--ion-color-header-color);
+
+    ion-label {
+        color: white !important;
+    }
+
+    ion-input {
+        background: none !important;
+        color: white !important;
+    }
+}
+
+ion-item.item-has-focus>ion-label {
+    color: white !important;
+}
+
+ion-item.item-has-focus {
+    --highlight-background: white;
+}
+
+ion-menu-button {
+    color: white
+}
+
+
+.alert{
+    --background: var(--ion-color-siyah-1);
+}
+alert-wrapper ion-overlay-wrapper sc-ion-alert-ios
+{
+    --background:red;
+}
+ion-header{
+    background: var(--ion-color-siyah-1) !important;
+}

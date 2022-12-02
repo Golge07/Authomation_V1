@@ -1,0 +1,16 @@
+ion-content {
+    --background: var(--ion-color-siyah-1);
+    ion-list {
+        background: var(--ion-color-siyah-1);
+    }
+}
+
+ion-buttons {
+    position: absolute;
+    bottom:0;
+    right: 0;
+    --background: transparent !important;
+}
+ion-list{
+    height: 100%;
+}

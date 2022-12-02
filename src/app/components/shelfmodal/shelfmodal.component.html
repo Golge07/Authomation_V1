@@ -1,0 +1,35 @@
+<ion-header style="background: var(--ion-color-siyah-1) !important;" >
+    <ion-toolbar style="--background: transparent !important;">
+        <ion-title style="color: white;">Item Information</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+    <ion-list>
+        <ion-item>
+            <ion-label position="floating">Name</ion-label>
+            <ion-input #n placeholder="Enter name" value="{{name}}"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Type</ion-label>
+            <ion-input #t placeholder="Enter type" value="{{type}}"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Quantity</ion-label>
+            <ion-input #q type="number" placeholder="Enter quantity" value="{{quantity}}"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Shelf Number</ion-label>
+            <ion-input #na type="number" placeholder="Enter shelf number" value="{{number}}"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Comment</ion-label>
+            <ion-input #c type="textarea" placeholder="Enter email" value="{{comment}}"></ion-input>
+        </ion-item>
+        <ion-buttons  slot="end">
+            <ion-button color="light" (click)="dismiss()">Ok</ion-button>
+            <ion-button color="success" (click)="updateall(n.value,t.value,c.value,q.value,na.value)">Update</ion-button>
+            <ion-button color="success" (click)="updateq(this.q.value)">Update Just Quantity</ion-button>
+            <ion-button color="danger" (click)="deleteitem(this.id)">Delete</ion-button>
+        </ion-buttons>
+    </ion-list>
+</ion-content>

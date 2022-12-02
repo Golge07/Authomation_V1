@@ -1,0 +1,7 @@
+{
+  "name": "Authomation_V1",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,73 @@
+@media screen and (min-width: 801px) {
+    ion-buttons {
+        display: flex;
+        max-width: 5%;
+
+        ion-button {
+            min-width: 100%;
+        }
+    }
+
+    ion-col {
+        .card1 {
+            width: 50%;
+            margin: auto;
+            top: 15%;
+
+            .btn1 {
+                --color: light;
+                --background: light;
+                height: 25px;
+                margin-top: 25px;
+                margin: auto;
+            }
+        }
+
+        .card2 {
+            width: 50%;
+            margin: auto;
+            top: 25%;
+
+            .btn2 {
+                --color: light;
+                --background: light;
+                height: 25px;
+                margin-top: 25px;
+                margin: auto;
+            }
+        }
+    }
+}
+
+ion-button {
+    --color: light;
+    --background: light;
+    height: 25px;
+    margin-top: 25px;
+    margin: auto;
+}
+
+ion-content {
+    --background: var(--ion-color-siyah-1)
+}
+
+ion-card {
+    --background: var(--ion-color-card-color);
+
+    ion-card-subtitle {
+        color: white;
+    }
+}
+
+ion-header {
+    ion-segment {
+        background: var(--ion-color-siyah-1);
+    }
+ion-buttons{
+background: none;  
+color: white;  
+}
+    ion-item-divider{
+        background: var(--ion-color-siyah-1);
+    }
+}

@@ -1,0 +1,76 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-segment  value="heart"  [(ngModel)]="show">
+            <ion-segment-button value="shelf">
+              <ion-icon name="grid"></ion-icon>
+              <ion-label>Shelf</ion-label>
+            </ion-segment-button>
+            <ion-segment-button disabled="{{this.global.user.permission <5}}" value="user">
+              <ion-icon name="person-add-outline"></ion-icon>
+              <ion-label>User</ion-label>
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+   
+
+<div *ngIf="show == 'shelf'">
+<ion-item>
+    <ion-label position="floating">Name</ion-label>
+    <ion-input #oname></ion-input>
+</ion-item>
+
+<ion-item>
+    <ion-label position="floating">Type</ion-label>
+    <ion-input #type></ion-input>
+</ion-item>
+
+<ion-item>
+    <ion-label position="floating">Comment</ion-label>
+    <ion-input #comment></ion-input>
+</ion-item>
+
+<ion-item>
+    <ion-label position="floating">Quantity</ion-label>
+    <ion-input #quantity></ion-input>
+</ion-item>
+
+<ion-item>
+    <ion-label position="floating">Shelf Number</ion-label>
+    <ion-input #shelfNumber></ion-input>
+</ion-item>
+<ion-button (click)="addItem(oname.value,type.value,comment.value,quantity.value,shelfNumber.value)" expand="block">Add</ion-button>
+</div>
+
+
+<div *ngIf="show == 'user'">
+
+    <ion-item>
+        <ion-label position="floating">Name</ion-label>
+        <ion-input #name></ion-input>
+    </ion-item>
+    
+    <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input #email></ion-input>
+    </ion-item>
+    
+    <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input #password></ion-input>
+    </ion-item>
+    
+    <ion-item>
+        <ion-label position="floating">Permission</ion-label>
+        <ion-input #permission type="number"></ion-input>
+    </ion-item>
+    <ion-button (click)="addUser(name.value,email.value,password.value,permission.value)" expand="block">Add</ion-button>
+</div>
+
+
+</ion-content>
