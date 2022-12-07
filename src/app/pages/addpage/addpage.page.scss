@@ -7,7 +7,17 @@ color: white;
         color:white;
     }
 }
-
+ion-item{
+    margin-top: 7.5px;
+}
 ion-toolbar{
     --background: transparent !important;
+}
+div{
+    span{
+        color: red;
+    }
+}
+ion-button{
+    margin-top: 15px;
 }

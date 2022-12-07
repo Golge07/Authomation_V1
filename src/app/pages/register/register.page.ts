@@ -10,53 +10,13 @@ import { UserService } from 'src/app/services/http/user.service';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
-  constructor(private global: GlobalService, private formBuilder: FormBuilder, private http: UserService, private router: Router, private alert: AlertService) { }
+  constructor(private global: GlobalService, private http: UserService, private router: Router, private alert: AlertService) { }
   RegisterForm: FormGroup;
-  errorMessages = {
-    name: [
-      {
-        type: 'required', message: "Name can't be blank"
-      },
-      {
-        type: 'minlength', message: 'Name can be min 4 charecter'
-      },
-      {
-        type: 'maxlength', message: 'Name can be max 10 charecter'
-      }
-    ],
-    email: [
-      {
-        type: 'required', message: "Email can't be blank"
-      }, {
-        type: 'email', message: 'Please enter a valid email'
-      }
-    ],
-    password: [
-      {
-        type: 'required', message: "Password can't be blank"
-      }, {
-        type: 'minlength', message: 'Password can be min 4 charecter'
-      }, {
-        type: 'maxlength', message: 'Password can be max 8 charecter'
-      }
-    ],
-    confirmPassword: [
-      {
-        type: 'required', message: "Re-password can't be blank"
-      }, {
-        type: 'mustMatch', message: 'Re-password must be the same as the password'
-      }
-    ]
-  }
+  f
+  errorMessages = this.global.errMessages;
   ngOnInit() {
-    this.RegisterForm = this.formBuilder.group({
-      username: new FormControl("", [Validators.minLength(3), Validators.required, Validators.maxLength(10)]),
-      email: new FormControl("",[Validators.required,Validators.email]),
-      password:['',[Validators.required,Validators.minLength(4),Validators.maxLength(8)]],
-      confirmPassword: ['', [Validators.required]],
-    }, {
-      validator: this.MustMatch('password', 'confirmPassword')
-    })
+    this.f = this.global.f;
+    this.RegisterForm = this.global.formGroup;
   }
   onSubmit(){
     if (this.RegisterForm.invalid) {
@@ -79,19 +39,6 @@ export class RegisterPage implements OnInit {
       })
     }
   }
-  get f() { return this.RegisterForm.controls; }
-  MustMatch(controlName: string, matchingControlName: string) {
-    return (formGroup: FormGroup) => {
-      const control = formGroup.controls[controlName];
-      const matchingControl = formGroup.controls[matchingControlName];
-      if (matchingControl.errors && !matchingControl.errors.mustMatch) {
-        return;
-      }
-      if (control.value !== matchingControl.value) {
-        matchingControl.setErrors({ mustMatch: true });
-      } else {
-        matchingControl.setErrors(null);
-      }
-    }
-  }
+  
+ 
 }

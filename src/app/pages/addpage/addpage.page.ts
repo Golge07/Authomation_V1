@@ -4,6 +4,7 @@ import { GlobalService } from 'src/app/services/global.service';
 import { AlertService } from 'src/app/services/alert.service';
 import { UserService } from 'src/app/services/http/user.service';
 import { ShelfService } from 'src/app/services/http/shelf.service';
+import { FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-addpage',
   templateUrl: './addpage.page.html',
@@ -11,8 +12,14 @@ import { ShelfService } from 'src/app/services/http/shelf.service';
 })
 export class AddpagePage implements OnInit {
   show = "shelf"
+  form:FormGroup;
+  err;
+  f;
   constructor(private global: GlobalService, private alert: AlertService, private userService: UserService, private shelfService: ShelfService) { }
   ngOnInit() {
+    this.form= this.global.formGroup;
+    this.err = this.global.errMessages; 
+    this.f = this.global.f;
     this.global.menuName = "Add Page"
   }
   addItem(name, type, comment, quantity, number) {
@@ -34,6 +41,10 @@ export class AddpagePage implements OnInit {
     }
   }
   addUser(name, email, password, permission) {
+   if(this.form.invalid){
+    this.alert.Alert('WARNING!','','Please complete all conditions!',['Ok'],'')
+    this.form.markAsPending()
+   }else{
     if (permission < this.global.user.permission) {
       const body = { name, email, password, permission }
       this.userService.store(body).subscribe((res) => {
@@ -47,5 +58,6 @@ export class AddpagePage implements OnInit {
       
       this.alert.Alert("WARNING!","","You can't add permission larger than own permission",['Ok'],"")
     }
+   }
   }
 }

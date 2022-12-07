@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';  
 import { ModalController } from '@ionic/angular';
 import { UsermodalComponent } from 'src/app/components/usermodal/usermodal.component';
 import { AlertService } from 'src/app/services/alert.service';
@@ -12,13 +12,12 @@ import { UserService } from 'src/app/services/http/user.service';
   styleUrls: ['./users.page.scss'],
 })
 export class UsersPage implements OnInit {
-
   constructor(private searchService:SearchService,private userService:UserService,private global: GlobalService, private alert: AlertService, private modalctrl: ModalController) { }
   ngOnInit() {  
     this.userService.show(this.global.user['permission']).subscribe((res) => { this.users = res['data']; })
     this.global.menuName = "Users Page"
   }
-
+errMessages = this.global.errMessages
   async openmodal(name, dust2, password, perm, id) {
     const a: string = dust2
     const modal = await this.modalctrl.create({ component: UsermodalComponent, componentProps: { id,name, dust2, password, perm,refresh: ()=>{this.search(this.v)}} })
