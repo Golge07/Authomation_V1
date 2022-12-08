@@ -1,22 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { GlobalService } from 'src/app/services/global.service';
-import { AlertService } from 'src/app/services/alert.service';
 import { ShelfmodalComponent } from 'src/app/components/shelfmodal/shelfmodal.component';
-import { ShelfService } from 'src/app/services/http/shelf.service';
+import { AlertService } from 'src/app/services/alert.service';
+import { GlobalService } from 'src/app/services/global.service';
 import { SearchService } from 'src/app/services/http/search.service';
+import { ShelfService } from 'src/app/services/http/shelf.service';
+
 @Component({
-  selector: 'app-shelfs',
-  templateUrl: './shelfs.page.html',
-  styleUrls: ['./shelfs.page.scss'],
+  selector: 'app-test',
+  templateUrl: './test.page.html',
+  styleUrls: ['./test.page.scss'],
 })
-export class ShelfsPage implements OnInit {
+export class TestPage implements OnInit {
+
   constructor(private httpShelf:ShelfService,private global: GlobalService, private alerts: AlertService, private modalctrl: ModalController,private searchService:SearchService) { }
-  btn = JSON.parse(localStorage.getItem('user')).permission <=3
+  select;
+  items = []
+  v;
+  selects = [{ name: 'All', }, { name: 'Name', }, { name: 'Type', }, { name: 'Comment', }, { name: 'Quantity', }, { name: 'ShelfNumber', }];
   ngOnInit() {
-    this.global.user = JSON.parse(localStorage.getItem('user'))
     this.httpShelf.index().subscribe(res=>{this.items = res['data']})
-    this.global.menuName = "Shelf Page"
   }
   async openmodal(id, name, type, quantity, number, comment,items) {
     const modal = await this.modalctrl.create({
@@ -28,11 +31,6 @@ export class ShelfsPage implements OnInit {
     })
     return modal.present()
   }
-  items = []
-  select;
-  selects = [{ name: 'All', }, { name: 'Name', }, { name: 'Type', }, { name: 'Comment', }, { name: 'Quantity', }, { name: 'ShelfNumber', }
-  ];
-  v
   search(value) {
     if (value != "" && value != undefined) {
       this.v = value
@@ -53,7 +51,4 @@ export class ShelfsPage implements OnInit {
       })
     }
   } 
-  handleChange(ev) {
-    this.select = ev.target.value;
-  }
 }

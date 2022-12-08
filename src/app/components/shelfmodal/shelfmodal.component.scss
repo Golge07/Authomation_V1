@@ -1,16 +1,31 @@
 ion-content {
-    --background: var(--ion-color-siyah-1);
+    --background: var(--ion-color-test2);
+
     ion-list {
-        background: var(--ion-color-siyah-1);
+        background: transparent;
+    }
+
+    ion-item {
+        --background: transparent;
+
+        ion-input {
+            color: white;
+            font-size: 20px;
+        }
+        ion-label{
+            font-size: 20px;
+color: white;
+        }
     }
 }
 
 ion-buttons {
     position: absolute;
-    bottom:0;
+    bottom: 0;
     right: 0;
     --background: transparent !important;
 }
-ion-list{
+
+ion-list {
     height: 100%;
 }

@@ -62,20 +62,28 @@ ion-card {
 }
 
 ion-header {
+    height: 65px;
+    background: var(--ion-color-test2);
+    ion-toolbar{
+        height: 65px;
+        --background: transparent;
+    }
     ion-segment {
+    height: 65px;
+    background: var(--ion-color-test2);
         ion-icon{
             color: white !important;
         }
         ion-label{
             color: white !important;
         }
-        background: var(--ion-color-siyah-1);
+        background: transparent;
     }
 ion-buttons{
-background: none;  
+background: transparent;
 color: white;  
 }
     ion-item-divider{
-        background: var(--ion-color-siyah-1);
+        background: transparent;
     }
 }

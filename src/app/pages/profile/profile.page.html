@@ -6,7 +6,7 @@
         </ion-buttons>
   <ion-segment  value="heart" [(ngModel)]="show">
         <ion-segment-button value="profile">
-          <ion-icon name="person-outline"></ion-icon>
+          <ion-icon  name="person-outline"></ion-icon>
           <ion-label>Profile</ion-label>
         </ion-segment-button>
         <ion-segment-button value="settings">
@@ -17,10 +17,9 @@
     
     </ion-item-divider>
 </ion-toolbar>
-    
 </ion-header>
-<ion-content [fullscreen]="true">
-  
+
+<ion-content [fullscreen]="true"> 
  <div *ngIf="show=='profile'">
 <ion-card>
     <ion-card-content>

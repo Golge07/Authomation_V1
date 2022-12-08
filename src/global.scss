@@ -30,3 +30,13 @@
     background: var(--ion-color-header-color) !important;
     -webkit-text-fill-color: white;
 }
+.toast.danger{
+    font-size: 20px;
+    color: white;
+    --background:red;
+}
+.toast.submit{
+    font-size: 20px;
+    color: white;
+    --background:green;
+}

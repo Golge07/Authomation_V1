@@ -1,5 +1,7 @@
 
 ion-segment{
+    height: 65px;
+    background: transparent;
     ion-icon{
 color: white;
     }
@@ -20,4 +22,34 @@ div{
 }
 ion-button{
     margin-top: 15px;
+}
+ion-header{
+    height: 67px;
+    background: var(--ion-color-test2);
+}
+ion-content{
+    --background: var(--ion-color-siyah-1);
+}
+ion-card{
+    margin: auto;
+    margin-top: 10%;
+    width: 1000px;
+    background: var(--ion-color-test2);
+    ion-item{
+        --background:transparent;
+ion-label{
+    color: white;
+}
+        ion-input{
+            --background:transparent;
+        }
+    }
+    ion-button{
+        --background: green;
+    }
+}
+@media screen and (max-width:801px ) {
+ion-card{  
+    width: 100%;
+}
 }

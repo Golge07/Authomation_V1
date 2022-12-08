@@ -32,6 +32,10 @@ const routes: Routes = [
     path: 'adds',
     loadChildren: () => import('./pages/addpage/addpage.module').then(m => m.AddpagePageModule),
     canActivate:[LoadControlGuard]
+  },
+  {
+    path: 'test',
+    loadChildren: () => import('./pages/test/test.module').then( m => m.TestPageModule)
   }
   
 

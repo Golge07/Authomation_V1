@@ -14,7 +14,9 @@ import { UserService } from 'src/app/services/http/user.service';
 export class UsersPage implements OnInit {
   constructor(private searchService:SearchService,private userService:UserService,private global: GlobalService, private alert: AlertService, private modalctrl: ModalController) { }
   ngOnInit() {  
-    this.userService.show(this.global.user['permission']).subscribe((res) => { this.users = res['data']; })
+    
+    this.userService.show(this.global.user['permission']).subscribe((res) => { this.users = res['data']; console.log(res['data']);
+    })
     this.global.menuName = "Users Page"
   }
 errMessages = this.global.errMessages

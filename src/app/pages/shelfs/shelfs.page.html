@@ -5,12 +5,12 @@
                 <ion-menu-button></ion-menu-button>
             </ion-buttons>
             <ion-item>
-                <ion-select [interfaceOptions]="alert" mode="ios" (ionChange)="handleChange($event)" placeholder="Search">
+                <ion-select  mode="ios" (ionChange)="handleChange($event)" placeholder="Search">
                     <ion-select-option *ngFor="let select of selects">{{ select.name }}
                     </ion-select-option>
                 </ion-select>
             </ion-item>
-            <ion-searchbar class="search" mode="ios" placeholder="Search" #searchbar (ionChange)="search(this.searchbar.value)">
+            <ion-searchbar  placeholder="Search" #searchbar (ionChange)="search(this.searchbar.value)">
             </ion-searchbar>
         </ion-item-divider>
     </ion-toolbar>
@@ -20,16 +20,24 @@
         <ion-item-sliding>
             <ion-grid>
                 <ion-row>
-                    <ion-col *ngFor="let item of items" size="12" sizeSm="6" sizeMd="6" sizeLg="4" sizeXl="3">
-                        <ion-card  tappable (click)="openmodal(item['id'],item['Name'],item['Type'],item['Quantity'],item['ShelfNumber'],item['Comment'],item)">
-                            <ion-card-content>
-                                <ion-card-title color="dark">{{item["Name"]}}</ion-card-title>
-                                <ion-card-subtitle color="dark">Type        / {{item["Type"]}}</ion-card-subtitle>
-                                <ion-card-subtitle color="dark">Quantity    / {{item["Quantity"]}}</ion-card-subtitle>
-                                <ion-card-subtitle color="dark">Comment     / {{item["Comment"]}}</ion-card-subtitle>
-                                <ion-card-subtitle color="dark">ShelfNumber / {{item["ShelfNumber"]}}</ion-card-subtitle>
-                            </ion-card-content>
-                        </ion-card>
+                    <ion-col *ngFor="let item of items" size="2" sizeSm="6" sizeMd="6" sizeLg="4" sizeXl="2.3" pushXl="0.1">
+                        <div class="card" >
+                            <div class="flip-container">
+                              <div class="flipper">
+                                <div class="front" style="background: #38040e !important;">
+                                  <h3> {{item["Name"]}} </h3>
+                                  <h3> {{item["ShelfNumber"]}}</h3>
+                                </div>
+                                <div tappable (click)="openmodal(item['id'],item['Name'],item['Type'],item['Quantity'],item['ShelfNumber'],item['Comment'],item)" class="back" style="background: #14746f !important;">
+                                  <h5 color="dark">{{item["Name"]}}</h5>
+                                  <ion-card-subtitle color="dark">Type / {{item["Type"]}}</ion-card-subtitle>
+                                  <ion-card-subtitle color="dark">Quantity / {{item["Quantity"]}}</ion-card-subtitle>
+                                  <ion-card-subtitle color="dark">Comment / {{item["Comment"]}}</ion-card-subtitle>
+                                  <ion-card-subtitle color="dark">ShelfNumber / {{item["ShelfNumber"]}}</ion-card-subtitle>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                     </ion-col>
                 </ion-row>
             </ion-grid>

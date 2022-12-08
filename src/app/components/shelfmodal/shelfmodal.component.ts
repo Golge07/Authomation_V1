@@ -55,10 +55,10 @@ export class ShelfmodalComponent {
       
       if (res['durumKodu'] == "900") {
         this.quantity = value
-        this.alert.Alert('WARNING', '', 'Object succesfully to updated!', ['Ok'], '')
+        this.alert.toast('Item succesfully updated!',"submit")
         this.Refresh()
       } else {
-        this.alert.Alert('WARNING', '', 'Object failed to update!', ['Ok'], '')
+        this.alert.toast('Item failed to update!',"submit")
       }
     })
     } catch (Exception) {
@@ -68,7 +68,7 @@ this.alert.Alert('HATA!','','Kayıt güncellenirken bir sorun oluştu!',['Tamam'
   updateq(q) {
     let value = q
       if ((Number.isInteger(Number.parseInt(value)))) {
-         if (this.quantity == "Empty" || this.quantity == "Bos" || this.quantity == "Var" || !Number.isInteger(this.quantity)) {
+         if (this.quantity == "Empty" || this.quantity == "Bos" || this.quantity == "Var" || Number.isInteger(this.quantity)) {
           const body={
             "id":this.id,
             "name": this.name,
@@ -81,10 +81,10 @@ this.alert.Alert('HATA!','','Kayıt güncellenirken bir sorun oluştu!',['Tamam'
             console.log("res1 => "+res );
             if (res['durumKodu'] == "900") {
               this.quantity = value
-              this.alert.Alert('WARNING', '', 'Object succesfully to updated!', ['Ok'], '')
+              this.alert.toast('Item succesfully updated!',"submit")
               this.Refresh();
             } else {
-              this.alert.Alert('WARNING', '', 'Object failed to update!', ['Ok'], '')
+              this.alert.toast('Item failed to update!',"danger")
             }
           })
         }
@@ -102,15 +102,14 @@ this.alert.Alert('HATA!','','Kayıt güncellenirken bir sorun oluştu!',['Tamam'
             console.log("res2 => "+(res) );
             if (res['durumKodu'] == "900") {
               this.quantity = value <= 0 ? "Empty" : value, this.number
-              this.alert.Alert('WARNING', '', 'Object succesfully to updated!', ['Ok'], '')
+              this.alert.toast('Item succesfully updated!',"submit")
               this.Refresh();
             } else {
-              this.alert.Alert('WARNING', '', 'Object failed to update!', ['Ok'], '')
+              this.alert.toast('Item failed to update!',"submit")
             }
           }
           )
         }
-        
       } else {
         const body ={
           "id":this.id,
@@ -124,10 +123,10 @@ this.alert.Alert('HATA!','','Kayıt güncellenirken bir sorun oluştu!',['Tamam'
           console.log("res3 => "+res );
           if (res['durumKodu'] == "900") {
             this.quantity = value
-            this.alert.Alert('WARNING', '', 'Object succesfully to updated!', ['Ok'], '')
+            this.alert.toast('Item succesfully updated!',"submit")
             this.Refresh();
           } else {
-            this.alert.Alert('WARNING', '', 'Object failed to update!', ['Ok'], '')
+            this.alert.toast('Item failed to   update!',"submit")
           }
         })
       }

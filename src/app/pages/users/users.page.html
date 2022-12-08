@@ -10,24 +10,34 @@
                     </ion-select-option>
                 </ion-select>
             </ion-item>
-            <ion-searchbar mode="ios" placeholder="Search" #searchbar (ionChange)="search(this.searchbar.value)">
+            <ion-searchbar style="top: 7.5px;"  placeholder="Search" #searchbar (ionChange)="search(this.searchbar.value)">
             </ion-searchbar>
         </ion-item-divider>
     </ion-toolbar>
 </ion-header>
-<ion-content> 
+<ion-content>
     <ion-item-group>
         <ion-item-sliding>
             <ion-grid>
                 <ion-row>
-                    <ion-col *ngFor="let user of users" size="12" sizeSm="6" sizeMd="6" sizeLg="4" sizeXl="3">
-                        <ion-card tappable (click)="openmodal(user['name'],user['email'],user['password'],user['permission'],user['id'])">
-                            <ion-card-content>
-                                <ion-card-title color="dark">{{user["name"]}}</ion-card-title>
-                                <ion-card-subtitle color="dark">Email        / {{user["email"]}}</ion-card-subtitle>
-                                <ion-card-subtitle color="dark">Permission    / {{user["permission"]}}</ion-card-subtitle>
-                            </ion-card-content>
-                        </ion-card>
+                    <ion-col *ngFor="let user of users" size="2" sizeSm="6" sizeMd="6" sizeLg="4" sizeXl="2.3"
+                        pushXl="0.1">
+                        <div class="card">
+                            <div class="flip-container">
+                                <div class="flipper">
+                                    <div class="front" style="background: green !important;">
+                                        <h3> {{user["name"]}} </h3>
+                                    </div>
+                                    <div tappable (click)="openmodal(user['name'],user['email'],user['password'],user['permission'],user['id'])"
+                                        class="back" style="background: #009345 !important;">
+                                        <h5 color="dark">{{user["name"]}}</h5>
+                                        <ion-card-subtitle color="dark">Email / {{user["email"]}}</ion-card-subtitle>
+                                        <ion-card-subtitle color="dark">Permission / {{user["permission"]}}
+                                        </ion-card-subtitle>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </ion-col>
                 </ion-row>
             </ion-grid>

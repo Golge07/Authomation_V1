@@ -1,20 +1,35 @@
-ion-card {
-    top: 20%;
-    width: 50%;
-    margin: auto;
-}
-ion-item{
-    ion-label{
-        color: white !important;
-    }
-}
 ion-button {
     display: flex;
     margin: auto;
     width: 50%;
  margin-top: 20px;
 }
-@media screen and (max-width:500px) {
+ion-card{
+    top: 20%;
+    margin: auto;
+    width: 60%;
+    background: var(--ion-color-test2);
+    ion-card-title{
+        color: white;
+    }
+    ion-item{
+        --background:transparent;
+ion-label{
+    color: white;
+}
+        ion-input{
+            color: white;
+            --background:transparent;
+        }
+    }
+    ion-button{
+        --background: green;
+    }
+}
+ion-content{
+    --background: var(--ion-color-siyah-1);
+}
+@media screen and (max-width:801px) {
     ion-card{
         width: 100%;
     }
